@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./Style.css";
 import Search from "./Search";
 import reportWebVitals from "./reportWebVitals";
 
@@ -8,6 +8,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Search />
+    <footer>
+      <a href="https://github.com/em-wb/sc-weather-react">Open source</a> code
+      by Emily
+    </footer>
   </React.StrictMode>
 );
 
