@@ -1,0 +1,9 @@
+.Search {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.weatherList {
+  list-style: none;
+  text-transform: capitalize;
+}
