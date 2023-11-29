@@ -1,0 +1,128 @@
+.App {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fadadd;
+}
+
+h1,
+h2 {
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+}
+
+h2 small {
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+input {
+  width: 100%;
+  padding-left: 1%;
+}
+
+input::placeholder {
+  font-size: 0.9rem;
+}
+
+input,
+button {
+  border-radius: 4px !important;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: all 200ms ease-in-out;
+  border: none;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 0;
+  background-color: #2e6b8e;
+}
+
+a {
+  color: black !important;
+}
+
+a:visited {
+  color: black;
+}
+
+footer {
+  text-align: center;
+  padding: 3%;
+}
+
+img {
+  width: 150px;
+  height: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-ctr {
+  font-family: "Nunito Sans", sans-serif;
+  max-width: 800px;
+  /* min-width: 300px; */
+  height: fit-content;
+  padding: 40px;
+  margin: 0 2% 4% 0;
+  border: solid 1px black;
+  border-radius: 8px;
+  box-shadow: 9px 9px 0px 0 #000000;
+  background-color: #87ceeb;
+}
+
+.current-ctr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-ctr {
+  width: 100%;
+  gap: 4%;
+}
+
+.hidden {
+  font-size: 18px;
+  opacity: 0.8;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.metric {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 576px) {
+  .App {
+    font-size: 15px;
+  }
+
+  .current {
+    text-align: center;
+  }
+
+  .current-ctr {
+    padding-top: 4%;
+  }
+
+  h2 {
+    font-size: 35px;
+  }
+
+  img {
+    width: 120px;
+    height: auto;
+  }
+}
