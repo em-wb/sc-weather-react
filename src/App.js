@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Date from "./Date";
 import "./App.css";
 
 export default function App() {
-  //   let weatherData = {
-  //     city: "London",
-  //     temperature: 22,
-  //     date: "Monday 12:00",
-  //     description: "Cloudy",
-  //     imgUrl: "https://openweathermap.org/img/wn/03d@2x.png",
-  //     humidity: 10,
-  //     wind: 15,
-  //   };
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState("Bordeaux");
 
@@ -19,7 +11,7 @@ export default function App() {
     setWeatherData({
       ready: true,
       city: response.data.name,
-      date: "Monday 12:00",
+      date: new Date(response.data.dt * 1000),
       temp: Math.round(response.data.main.temp),
       desc: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -35,7 +27,7 @@ export default function App() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
     fetch(url).then((response) => {
       if (response.ok) {
-        axios.get(url).then(getWeather);
+        axios.get(url).then(getWeather).then(console.log(weatherData));
       }
     });
   }
@@ -109,7 +101,8 @@ export default function App() {
           </div>
           <div className="row">
             <div className="col-md-12 current">
-              <span id="current-day-time">{weatherData.date}</span> ·
+              {weatherData.date}
+              <Date dateData={weatherData.date} /> ·
               <span className="description" id="current-description">
                 {" "}
                 {weatherData.desc}
