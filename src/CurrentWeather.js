@@ -1,29 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import FormatDate from "./FormatDate";
+import WeatherIcons from "./WeatherIcons";
 
 export default function CurrentWeather({ weatherData }) {
+  const [tempChosen, setTempChosen] = useState(weatherData.temp);
+  const [showCelsius, setShowCelsius] = useState(true);
+
+  function changeTempC(e) {
+    e.preventDefault();
+    setShowCelsius(true);
+    setTempChosen(weatherData.temp);
+  }
+
+  function changeTempF(e) {
+    e.preventDefault();
+    setShowCelsius(false);
+    setTempChosen((weatherData.temp * 9) / 5 + 32);
+  }
+
   return (
     <div className="currentWeather">
-      <div className="row current-ctr mt-2">
-        <h1 className="col-sm-5 current city-cell" id="current-city">
+      <div className="row current-ctr mt-4">
+        <h1 className="col-sm-6 current city-cell" id="current-city">
           {weatherData.city}
         </h1>
-        <div className="col-sm-3 col-5 current icon-cell pb-3 text-center">
-          <img
-            src={`https://openweathermap.org/img/wn/${weatherData.imgId}@2x.png`}
-            alt={weatherData.desc}
-            id="current-icon"
-          />
+        <div
+          className="col-sm-3 col-5 current icon-cell pt-2 text-end
+        "
+        >
+          <WeatherIcons className="currentIcon" imgId={weatherData.imgId} />
         </div>
-        <h2 className="col-sm-4 col-7 current temp-cell text-center">
+        <h2 className="col-sm-3 col-7 current temp-cell text-center">
           <strong>
-            <span id="current-temp-value">{weatherData.temp}</span>°
+            <span id="current-temp-value">{Math.round(tempChosen)}</span>°
             <small>
-              <a href="/" id="degrees-c" className="unhidden dark-light metric">
-                C{" "}
-              </a>
+              <a
+                onClick={changeTempC}
+                href="/"
+                id="degrees-c"
+                className={`${showCelsius ? "unhidden" : "hidden"}`}
+              >
+                C
+              </a>{" "}
               |{" "}
-              <a href="/" id="degrees-f" className="hidden dark-light metric">
+              <a
+                onClick={changeTempF}
+                href="/"
+                id="degrees-f"
+                className={`${showCelsius ? "hidden" : "unhidden"}`}
+              >
                 F
               </a>
             </small>
@@ -31,7 +56,7 @@ export default function CurrentWeather({ weatherData }) {
         </h2>
       </div>
       <div className="row">
-        <div className="col-md-12 current">
+        <div className="col-md-12 mt-4 current">
           <FormatDate dateData={weatherData.date} /> ·
           <span className="description" id="current-description">
             {" "}

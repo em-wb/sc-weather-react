@@ -13,7 +13,7 @@ export default function App() {
       ready: true,
       city: response.data.name,
       date: (response.data.dt + response.data.timezone) * 1000,
-      temp: Math.round(response.data.main.temp),
+      temp: response.data.main.temp,
       desc: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed * 3.6),
@@ -110,7 +110,7 @@ export default function App() {
             </form>
             <CurrentWeather weatherData={weatherData} />
           </div>
-          <footer>
+          <footer className="mt-1">
             <a href="https://github.com/em-wb/sc-weather-react">Open source</a>{" "}
             code by Emily
           </footer>

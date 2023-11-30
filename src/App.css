@@ -53,11 +53,6 @@ a:visited {
   color: black;
 }
 
-footer {
-  text-align: center;
-  padding: 3%;
-}
-
 img {
   width: 150px;
   height: auto;
@@ -72,9 +67,8 @@ img {
 .app-ctr {
   font-family: "Nunito Sans", sans-serif;
   max-width: 800px;
-  width: auto;
   height: fit-content;
-  padding: 6%;
+  padding: 5%;
   margin: 0 2% 4% 0;
   border: solid 1px black;
   border-radius: 8px;
@@ -86,6 +80,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .btn-ctr {
@@ -100,6 +95,10 @@ img {
   cursor: pointer;
 }
 
+.unhidden {
+  text-decoration: none;
+}
+
 .metric {
   text-decoration: none;
 }
@@ -111,6 +110,10 @@ img {
 @media screen and (max-width: 576px) {
   .App {
     font-size: 15px;
+  }
+
+  .app-ctr {
+    padding: 7% 5%;
   }
 
   .current {
