@@ -5,10 +5,10 @@ export default function CurrentWeather({ weatherData }) {
   return (
     <div className="currentWeather">
       <div className="row current-ctr mt-2">
-        <h1 className="col-sm-4 current city-cell" id="current-city">
+        <h1 className="col-sm-5 current city-cell" id="current-city">
           {weatherData.city}
         </h1>
-        <div className="col-sm-4 col-5 current icon-cell pb-3 text-center">
+        <div className="col-sm-3 col-5 current icon-cell pb-3 text-center">
           <img
             src={`https://openweathermap.org/img/wn/${weatherData.imgId}@2x.png`}
             alt={weatherData.desc}
