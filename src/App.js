@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Date from "./Date";
+import FormatDate from "./FormatDate";
 import "./App.css";
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
     setWeatherData({
       ready: true,
       city: response.data.name,
-      date: new Date(response.data.dt * 1000),
+      date: (response.data.dt + response.data.timezone) * 1000,
       temp: Math.round(response.data.main.temp),
       desc: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -101,8 +101,7 @@ export default function App() {
           </div>
           <div className="row">
             <div className="col-md-12 current">
-              {weatherData.date}
-              <Date dateData={weatherData.date} /> ·
+              <FormatDate dateData={weatherData.date} /> ·
               <span className="description" id="current-description">
                 {" "}
                 {weatherData.desc}
