@@ -28,19 +28,14 @@ export default function App() {
     setLocation({
       useLocation: false,
     });
-    getApiUrl();
+    getApiByCity();
   }
 
-  function getApiUrl() {
-    let url;
-    if (location.useLocation) {
-      url = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.long}&appid=7784a4cd4aa2e0c25ead7bd96d585b8a&units=metric`;
-    } else {
-      url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7784a4cd4aa2e0c25ead7bd96d585b8a&units=metric`;
-    }
+  function getApiByCity() {
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7784a4cd4aa2e0c25ead7bd96d585b8a&units=metric`;
     fetch(url).then((response) => {
       if (response.ok) {
-        axios.get(url).then(getWeather).then(console.log(weatherData));
+        axios.get(url).then(getWeather);
       }
     });
   }
@@ -59,7 +54,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    getApiUrl();
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.long}&appid=7784a4cd4aa2e0c25ead7bd96d585b8a&units=metric`;
+    fetch(url).then((response) => {
+      if (response.ok) {
+        axios.get(url).then(getWeather);
+      }
+    });
   }, [location]);
 
   function error(error) {
@@ -118,6 +118,6 @@ export default function App() {
       </div>
     );
   } else {
-    getApiUrl();
+    getApiByCity();
   }
 }
