@@ -49,7 +49,6 @@ export default function App() {
     setLocation({
       lat: position.coords.latitude,
       long: position.coords.longitude,
-      useLocation: true,
     });
   }
 
