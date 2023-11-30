@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Weather App in React
+
+A project from SheCodes using:
+
+- React
+- Bootstrap
+- API integration
+
+View the project live <a href="">here 👀</a>
+
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
