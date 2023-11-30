@@ -6,7 +6,7 @@ A project from SheCodes using:
 - Bootstrap
 - API integration
 
-View the project live <a href="">here 👀</a>
+View the project live <a href="">here </a>👀
 
 ---
 
