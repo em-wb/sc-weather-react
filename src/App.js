@@ -7,6 +7,8 @@ export default function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState("Bordeaux");
 
+  getApiUrl();
+
   function getWeather(response) {
     setWeatherData({
       ready: true,
@@ -24,6 +26,10 @@ export default function App() {
 
   function handleSumbit(e) {
     e.preventDefault();
+    getApiUrl();
+  }
+
+  function getApiUrl() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
     fetch(url).then((response) => {
       if (response.ok) {
@@ -67,7 +73,6 @@ export default function App() {
           </form>
           <CurrentWeather weatherData={weatherData} />
         </div>
-
         <footer>
           <a href="https://github.com/em-wb/sc-weather-react">Open source</a>{" "}
           code by Emily
