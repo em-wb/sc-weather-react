@@ -67,6 +67,7 @@ img {
 .app-ctr {
   font-family: "Nunito Sans", sans-serif;
   max-width: 800px;
+  width: 500px;
   height: fit-content;
   padding: 5%;
   margin: 0 2% 4% 0;
@@ -114,6 +115,7 @@ img {
 
   .app-ctr {
     padding: 7% 5%;
+    width: auto;
   }
 
   .current {
