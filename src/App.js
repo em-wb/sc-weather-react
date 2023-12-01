@@ -23,8 +23,6 @@ export default function App() {
     });
   }
 
-  let getInput = (e) => setCity(e.target.value);
-
   function handleSumbit(e) {
     e.preventDefault();
     setLocation({
@@ -85,7 +83,7 @@ export default function App() {
               <div className="col d-flex">
                 <div className="col-10">
                   <input
-                    onChange={getInput}
+                    onChange={(e) => setCity(e.target.value)}
                     id="new-city"
                     type="text"
                     placeholder="Enter a city"
