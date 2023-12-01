@@ -39,26 +39,28 @@ export default function CurrentWeather({ weatherData, apiKey }) {
         </div>
         <h2 className="col-sm-3 col-7 current temp-cell text-center">
           <strong>
-            <span id="current-temp-value">{Math.round(tempChosen)}</span>°
-            <small>
-              <a
-                onClick={changeTempC}
-                href="/"
-                id="degrees-c"
-                className={`${showCelsius ? "unhidden" : "hidden"}`}
-              >
-                C
-              </a>{" "}
-              |{" "}
-              <a
-                onClick={changeTempF}
-                href="/"
-                id="degrees-f"
-                className={`${showCelsius ? "hidden" : "unhidden"}`}
-              >
-                F
-              </a>
-            </small>
+            <span id="current-temp-value">{Math.round(tempChosen)}</span>°{" "}
+            <div className="degrees-ctr">
+              <small>
+                <a
+                  onClick={changeTempC}
+                  href="/"
+                  id="degrees-c"
+                  className={`${showCelsius ? "unhidden" : "hidden"}`}
+                >
+                  C
+                </a>{" "}
+                |{" "}
+                <a
+                  onClick={changeTempF}
+                  href="/"
+                  id="degrees-f"
+                  className={`${showCelsius ? "hidden" : "unhidden"}`}
+                >
+                  F
+                </a>
+              </small>
+            </div>
           </strong>
         </h2>
       </div>
