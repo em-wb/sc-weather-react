@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DailyForecast from "./DailyForecast";
 
@@ -13,6 +13,10 @@ export default function Forecast({ coords, apiKey, showCelsius }) {
     setTimezone(response.data.timezone_offset);
     setLoaded(true);
   }
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [coords, showCelsius]);
 
   if (loaded) {
     return (
