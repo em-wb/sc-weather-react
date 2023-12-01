@@ -31,6 +31,7 @@ export default function App() {
       useLocation: false,
     });
     getApiByCity();
+    setCity("");
   }
 
   function getApiByCity() {
@@ -93,6 +94,7 @@ export default function App() {
                     id="new-city"
                     type="text"
                     placeholder="Enter a city"
+                    value={city}
                   />
                 </div>
                 <div className="btn-ctr d-flex col-md-2">
