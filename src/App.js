@@ -7,7 +7,7 @@ export default function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState("Bordeaux");
   const [location, setLocation] = useState({ useLocation: false });
-  const apiKey = "8ca7dd4e61360b90fb66918853670e48";
+  const apiKey = "cd173a006b0e51dac58c6d8064c94178";
 
   function getWeather(response) {
     setWeatherData({
