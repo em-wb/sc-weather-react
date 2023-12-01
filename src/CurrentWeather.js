@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import FormatDate from "./FormatDate";
 import WeatherIcons from "./WeatherIcons";
+import Forecast from "./Forecast";
 
-export default function CurrentWeather({ weatherData }) {
+export default function CurrentWeather({ weatherData, apiKey }) {
   const [tempChosen, setTempChosen] = useState(weatherData.temp);
   const [showCelsius, setShowCelsius] = useState(true);
 
@@ -75,6 +76,11 @@ export default function CurrentWeather({ weatherData }) {
           </div>
         </div>
       </div>
+      <Forecast
+        coords={weatherData.coords}
+        apiKey={apiKey}
+        showCelsius={showCelsius}
+      />
     </div>
   );
 }

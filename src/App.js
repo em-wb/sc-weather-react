@@ -7,11 +7,13 @@ export default function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState("Bordeaux");
   const [location, setLocation] = useState({ useLocation: false });
+  const apiKey = "8ca7dd4e61360b90fb66918853670e48";
 
   function getWeather(response) {
     setWeatherData({
       ready: true,
       city: response.data.name,
+      coords: response.data.coord,
       date: (response.data.dt + response.data.timezone) * 1000,
       temp: response.data.main.temp,
       desc: response.data.weather[0].description,
@@ -32,7 +34,7 @@ export default function App() {
   }
 
   function getApiByCity() {
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7784a4cd4aa2e0c25ead7bd96d585b8a&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     fetch(url).then((response) => {
       if (response.ok) {
         axios.get(url).then(getWeather);
@@ -53,7 +55,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.long}&appid=7784a4cd4aa2e0c25ead7bd96d585b8a&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.long}&appid=${apiKey}&units=metric`;
     fetch(url).then((response) => {
       if (response.ok) {
         axios.get(url).then(getWeather);
@@ -107,7 +109,7 @@ export default function App() {
                 </div>
               </div>
             </form>
-            <CurrentWeather weatherData={weatherData} />
+            <CurrentWeather weatherData={weatherData} apiKey={apiKey} />
           </div>
           <footer className="mt-1">
             <a href="https://github.com/em-wb/sc-weather-react">Open source</a>{" "}

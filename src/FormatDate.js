@@ -17,7 +17,7 @@ export default function FormatDate({ dateData }) {
   const minutes = String(date.getUTCMinutes()).padStart(2, "0");
 
   return (
-    <span id="current-day-time">
+    <span className="FormatDate">
       {day} {hours}:{minutes}
     </span>
   );
