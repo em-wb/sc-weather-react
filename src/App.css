@@ -4,11 +4,11 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #fadadd;
+  background-color: #ffe3c7;
 }
 
 .Forecast {
-  background-color: #ffd8b2;
+  background-color: #fadadd;
   color: black;
   min-height: 206px;
   padding: 20px;

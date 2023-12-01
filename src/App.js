@@ -81,12 +81,7 @@ export default function App() {
               weatherData.imgId.includes("d") ? "day app-ctr" : "night app-ctr"
             }`}
           >
-            <form
-              onSubmit={handleSumbit}
-              id="search-cities"
-              className="row search-ctr"
-              action=""
-            >
+            <form onSubmit={handleSumbit} className="row" action="">
               <div className="col d-flex">
                 <div className="col-10">
                   <input
@@ -107,7 +102,6 @@ export default function App() {
                   <button
                     onClick={getUserLocation}
                     type="button"
-                    id="current-location-btn"
                     alt="Current location"
                   >
                     <i className="fa-solid fa-location-dot"></i>

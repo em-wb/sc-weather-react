@@ -34,20 +34,17 @@ export default function CurrentWeather({ weatherData, apiKey }) {
         <h1 className="col-sm-6 current city-cell" id="current-city">
           {weatherData.city}
         </h1>
-        <div
-          className={`${dayNight} col-sm-3 col-5 current icon-cell pt-2 text-end`}
-        >
+        <div className={`${dayNight} col-sm-3 col-5 current pt-2 text-end`}>
           <WeatherIcons imgId={weatherData.imgId} />
         </div>
-        <h2 className="col-sm-3 col-7 current temp-cell text-center">
+        <h2 className="col-sm-3 col-7 current text-center">
           <strong>
-            <span id="current-temp-value">{Math.round(tempChosen)}</span>°{" "}
+            <span>{Math.round(tempChosen)}</span>°{" "}
             <div className="degrees-ctr">
               <small>
                 <a
                   onClick={changeTempC}
                   href="/"
-                  id="degrees-c"
                   className={`${styleC} ${dayNight}`}
                 >
                   C
@@ -56,7 +53,6 @@ export default function CurrentWeather({ weatherData, apiKey }) {
                 <a
                   onClick={changeTempF}
                   href="/"
-                  id="degrees-f"
                   className={`${styleF} ${dayNight}`}
                 >
                   F
@@ -69,14 +65,10 @@ export default function CurrentWeather({ weatherData, apiKey }) {
       <div className="row">
         <div className="col-md-12 mt-4 current">
           <FormatDate dateData={weatherData.date} /> ·
-          <span className="description" id="current-description">
-            {" "}
-            {weatherData.desc}
-          </span>
+          <span className="description"> {weatherData.desc}</span>
           <div>
-            Humidity <span id="current-humidity"></span>
+            Humidity <span></span>
             {weatherData.humidity}% · Wind {weatherData.wind}km/h
-            <span id="current-wind"></span>
           </div>
         </div>
       </div>
