@@ -6,6 +6,9 @@ import Forecast from "./Forecast";
 export default function CurrentWeather({ weatherData, apiKey }) {
   const [tempChosen, setTempChosen] = useState(weatherData.temp);
   const [showCelsius, setShowCelsius] = useState(true);
+  const dayNight = weatherData.imgId.includes("d") ? "day" : "night";
+  const styleC = showCelsius ? "unhidden" : "hidden";
+  const styleF = showCelsius ? "hidden" : "unhidden";
 
   useEffect(() => {
     if (showCelsius) {
@@ -32,10 +35,9 @@ export default function CurrentWeather({ weatherData, apiKey }) {
           {weatherData.city}
         </h1>
         <div
-          className="col-sm-3 col-5 current icon-cell pt-2 text-end
-        "
+          className={`${dayNight} col-sm-3 col-5 current icon-cell pt-2 text-end`}
         >
-          <WeatherIcons className="currentIcon" imgId={weatherData.imgId} />
+          <WeatherIcons imgId={weatherData.imgId} />
         </div>
         <h2 className="col-sm-3 col-7 current temp-cell text-center">
           <strong>
@@ -46,7 +48,7 @@ export default function CurrentWeather({ weatherData, apiKey }) {
                   onClick={changeTempC}
                   href="/"
                   id="degrees-c"
-                  className={`${showCelsius ? "unhidden" : "hidden"}`}
+                  className={`${styleC} ${dayNight}`}
                 >
                   C
                 </a>{" "}
@@ -55,7 +57,7 @@ export default function CurrentWeather({ weatherData, apiKey }) {
                   onClick={changeTempF}
                   href="/"
                   id="degrees-f"
-                  className={`${showCelsius ? "hidden" : "unhidden"}`}
+                  className={`${styleF} ${dayNight}`}
                 >
                   F
                 </a>

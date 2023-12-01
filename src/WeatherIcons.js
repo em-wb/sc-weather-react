@@ -2,6 +2,9 @@ import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 
 export default function WeatherIcons({ imgId }) {
+  const isDay = imgId.includes("d");
+  const iconColor = isDay ? "#212529" : "white";
+
   const mapCodes = {
     "01d": "CLEAR_DAY",
     "01n": "CLEAR_NIGHT",
@@ -26,8 +29,8 @@ export default function WeatherIcons({ imgId }) {
   return (
     <ReactAnimatedWeather
       icon={mapCodes[imgId]}
-      color="#2E6B8E"
       animate={true}
+      color={iconColor}
     />
   );
 }

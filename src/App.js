@@ -75,7 +75,11 @@ export default function App() {
     return (
       <div className="App">
         <div className="container">
-          <div className="app-ctr dark-light">
+          <div
+            className={`${
+              weatherData.imgId.includes("d") ? "day app-ctr" : "night app-ctr"
+            }`}
+          >
             <form
               onSubmit={handleSumbit}
               id="search-cities"
