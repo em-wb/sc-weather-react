@@ -8,7 +8,6 @@ export default function Forecast({ coords, apiKey, showCelsius }) {
   const [timezone, setTimezone] = useState(null);
 
   function handleResponse(response) {
-    console.log("response", response);
     setForecast(response.data.daily);
     setTimezone(response.data.timezone_offset);
     setLoaded(true);

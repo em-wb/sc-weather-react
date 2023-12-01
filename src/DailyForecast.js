@@ -11,7 +11,6 @@ export default function DailyForecast({ forecastData, timezone }) {
     const date = new Date((forecastData.dt + timezone) * 1000);
     const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     const day = days[date.getUTCDay()];
-    console.log(date, "date");
     return day;
   }
 
