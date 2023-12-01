@@ -18,17 +18,17 @@ export default function DailyForecast({ forecastData, timezone }) {
   return (
     <div className="DailyForecast">
       <div className="row">
-        <div className="col forecastCtr text-center">
-          <div>{getDay()}</div>
-          <div>
+        <div className="col forecastCtr text-center mt-4">
+          <div className="mb-2">{getDay()}</div>
+          <div className="mb-2">
             <WeatherIcons imgId={imgId} />
           </div>
 
-          <div className="description">
+          <div className="description forecastDesc mb-2">
             <small>{description}</small>
           </div>
-          <div>
-            <strong>{maxTemp}</strong> · {minTemp}
+          <div className="mb-2">
+            <strong>{maxTemp}°</strong> · {minTemp}°
           </div>
         </div>
       </div>
