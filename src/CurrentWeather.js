@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormatDate from "./FormatDate";
 import WeatherIcons from "./WeatherIcons";
 
@@ -6,16 +6,22 @@ export default function CurrentWeather({ weatherData }) {
   const [tempChosen, setTempChosen] = useState(weatherData.temp);
   const [showCelsius, setShowCelsius] = useState(true);
 
+  useEffect(() => {
+    if (showCelsius) {
+      setTempChosen(weatherData.temp);
+    } else {
+      setTempChosen((weatherData.temp * 9) / 5 + 32);
+    }
+  }, [showCelsius, weatherData.temp]);
+
   function changeTempC(e) {
     e.preventDefault();
     setShowCelsius(true);
-    setTempChosen(weatherData.temp);
   }
 
   function changeTempF(e) {
     e.preventDefault();
     setShowCelsius(false);
-    setTempChosen((weatherData.temp * 9) / 5 + 32);
   }
 
   return (
