@@ -33,6 +33,7 @@ export default function Forecast({ coords, apiKey, showCelsius }) {
                 </div>
               );
             }
+            return null;
           })}
         </div>
       </div>
